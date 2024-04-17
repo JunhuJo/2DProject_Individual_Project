@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - UI
+  - Monster
+  - Trap
+  - Grounded
+  - BossMonster
+  - HitBox
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Monster
+  - HPBar
+  - Collider
+  - Trap
+  - Player
+  - PlayerDamaged
+  - BossMonster
+  - PlayerDie
+  - NPC
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 2228542611
+    locked: 0
+  - name: MieddleGround
+    uniqueID: 3133789117
+    locked: 0
+  - name: ForGround
+    uniqueID: 2479259931
+    locked: 0
+  - name: Monster
+    uniqueID: 3736420075
+    locked: 0
+  - name: Player
+    uniqueID: 824124641
+    locked: 0
+  - name: UI
+    uniqueID: 1926062671
+    locked: 0
+  - name: Item
+    uniqueID: 3083402785
+    locked: 0
+  - name: Menu
+    uniqueID: 3157392713
+    locked: 0
