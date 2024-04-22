@@ -11,7 +11,7 @@ TagManager:
   - BossZone
   - Grounded
   - BossMonster
-  - HitBox
+  - New tag
   layers:
   - Default
   - TransparentFX

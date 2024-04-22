@@ -37,8 +37,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //public static bool GameStartType = false;
-
     //캐릭터 & 몬스터 능력치 정보
     public static int PlayerMaxHP = 100;
     public static int PlayerNowHP = 100;
@@ -63,7 +61,6 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetFloat("PlayerPositionY", playerPos.transform.position.y);
         PlayerPrefs.SetInt("PlayerAP", playerAP.PlayerAP);
         PlayerPrefs.SetInt("PlayerHP", playerHP.nowHp);
-
         Debug.Log("저장됨");
     }
     
@@ -85,7 +82,6 @@ public class GameManager : MonoBehaviour
             Debug.Log("플레이어AP가 비었음");
         }
 
-
         if (!PlayerPrefs.HasKey("PlayerHP"))
         {
             Debug.Log("저장된 데이터가 없음");
@@ -104,40 +100,40 @@ public class GameManager : MonoBehaviour
     }
 
     //대화 정보
-    public TalkManager TalkManager;
-    public GameObject talkPanel;
-    public Text talkText;
-    public GameObject scanObject;
-    public bool isAction;
-    public int talkIndex;
+    //public TalkManager TalkManager;
+    //public GameObject talkPanelPrefab;
+    //public Text talkText;
+    //public GameObject scanObject;
+    //public bool isAction;
+    //public int talkIndex;
 
-    public void Action(GameObject scanObj)
-    {
-        if (isAction)
-        {
-            isAction = false;
-        }
-        else 
-        {
-            isAction=true;
-            scanObject = scanObj;
-            ObjectData objData =  scanObject.GetComponent<ObjectData>();
-            Talk(objData.id, objData.isNpc);
-        }
-        talkPanel.SetActive(isAction);
-    }
+    //public void Action(GameObject scanObj)
+    //{
+    //    if (isAction)
+    //    {
+    //        isAction = false;
+    //    }
+    //    else 
+    //    {
+    //        isAction=true;
+    //        scanObject = scanObj;
+    //        ObjectData objData =  scanObject.GetComponent<ObjectData>();
+    //        Talk(objData.id, objData.isNpc);
+    //    }
+    //    talkPanelPrefab.SetActive(isAction);
+    //}
 
-    void Talk(int id, bool isNpc)
-    {
-       string talkData =  TalkManager.GetTalk(id, talkIndex);
-
-        if (isNpc)
-        {
-            talkText.text = talkData;
-        }
-        else
-        {
-            talkText.text = talkData;
-        }
-    }
+    //void Talk(int id, bool isNpc)
+    //{
+    //   string talkData =  TalkManager.GetTalk(id, talkIndex);
+    //
+    //    if (isNpc)
+    //    {
+    //        talkText.text = talkData;
+    //    }
+    //    else
+    //    {
+    //        talkText.text = talkData;
+    //    }
+    //}
 }

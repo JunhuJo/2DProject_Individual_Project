@@ -11,7 +11,8 @@ public class BGM : MonoBehaviour
     private void Awake()
     {
         AudioSource source = GetComponent<AudioSource>();
-        source.PlayOneShot(MainBgm);
+        source.clip = MainBgm;
+        source.Play();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -23,7 +24,6 @@ public class BGM : MonoBehaviour
             source.clip = BossBgm;
             source.Play();
         }
-       
     }
 
     public void LoadAudioClips()

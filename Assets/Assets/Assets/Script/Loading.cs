@@ -22,7 +22,7 @@ public class Loading : MonoBehaviour
     private IEnumerator LoadingUpdate()
     {
         slider.value = nowLoading;
-        nowLoading += 0.001f; // 로딩바 속도
+        nowLoading += 0.005f; // 로딩바 속도
         yield return new WaitForSeconds(1f);
         if (slider.value == 1)
         {

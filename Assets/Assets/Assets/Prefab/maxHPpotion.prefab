@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7443667266328012684}
   - component: {fileID: 8526452637414649336}
-  - component: {fileID: -6780626256298815886}
+  - component: {fileID: -1051149632524157617}
   m_Layer: 0
   m_Name: maxHPpotion
   m_TagString: Item
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-6780626256298815886
+--- !u!114 &-1051149632524157617
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,6 +94,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6709548143260755962}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab8599f7e1528ac43a12fe061451bb9c, type: 3}
+  m_Script: {fileID: 11500000, guid: 340134cab0fe3fc428d945f2b6f7bcf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ItemKey: 300

@@ -2,18 +2,36 @@ using UnityEngine;
 
 public class Monster : MonoBehaviour
 {
+    //몬스터 정보 게임 매니저에서 받아옴
     public  int MonsternowHp = GameManager.MonsterNowHP;
     private int MonsterAP = GameManager.MonsterAP;
     private int PlayerAP = GameManager.PlayerAP;
     public GameObject[] DropItemPrefab;
     public Vector2 spwanPosition;
-
+    
+    //몬스터 사운드
     public AudioSource source;
     public AudioClip monsterDie;
+    
+    //몬스터 이동
+    SpriteRenderer spriteRenderer;
+    Rigidbody2D rigid;
+    public int nextMove;
+
     public Transform Transform;
     Animator anim;
+
+    void Awake()
+    {
+        rigid = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        Invoke("Think", 2);
+    }
+
     private void Start()
     {
+        
         anim = GetComponent<Animator>();
         Transform = GetComponent<Transform>();
         source = GetComponent<AudioSource>();
@@ -23,6 +41,48 @@ public class Monster : MonoBehaviour
             DropItemPrefab[i] = GameObject.FindGameObjectWithTag("Item");
         }
     }
+
+    void FixedUpdate()
+    {
+        //랜덤하게 몬스터 이동
+        rigid.velocity = new Vector2(nextMove, rigid.velocity.y);
+
+        if (nextMove == -1)
+        {
+            spriteRenderer.flipX = true;
+            anim.SetBool("MonsterMove", true);
+        }
+        else if (nextMove == 1)
+        {
+            spriteRenderer.flipX = false;
+            anim.SetBool("MonsterMove", true);
+        }
+        else
+        {
+            anim.SetBool("MonsterMove", false);
+            anim.SetBool("Idle", true);
+        }
+
+        //절벽 탐색 (Ray를 몬스터 앞에 세워두고 바닥과 충돌 감지가 없으면 방향을 틀어 절벽에서 떨어짐 방지)
+        float yOffset = 0.7f;
+        Vector2 frontVec = new Vector2(rigid.position.x + nextMove, rigid.position.y - yOffset);
+        Debug.DrawRay(frontVec, Vector3.down, new Color(0, 1, 0));
+
+        RaycastHit2D rayHit = Physics2D.Raycast(frontVec, Vector3.down, 1, LayerMask.GetMask("Collider"));
+        if (rayHit.collider == null)
+        {
+            nextMove *= -1;
+            CancelInvoke();
+            Invoke("Think", 2);
+        }
+    }
+
+    void Think()
+    {
+        nextMove = Random.Range(-1, 2);
+        Invoke("Think", 2);
+    }
+
 
     //몬스터가 HitBox와 충돌 시 처리(대미지)
     private void OnTriggerEnter2D(Collider2D other)
@@ -38,9 +98,10 @@ public class Monster : MonoBehaviour
             if (MonsternowHp <= 0)
             {
                 source.PlayOneShot(monsterDie);
-                gameObject.layer = 14;// 몬스터가 죽으면 레이어 변경으로 죽을 때 타격 불가
+                
 
                 anim.SetBool("MonsterDie", true);
+                gameObject.layer = 14;// 몬스터가 죽으면 레이어 변경으로 죽을 때 타격 불가
                 if (anim.GetBool("MonsterDie") == true)
                 {
                     int itemNum = Random.Range(0, 3);
@@ -67,10 +128,11 @@ public class Monster : MonoBehaviour
                         }
                     }
                 }
-                Invoke("MonsterDie", 1.0f);
+                 if (anim.GetBool("MonsterDie") == true) { Invoke("MonsterDie", 0.7f); }
             }
         }
     }
+
     public void LoadAudioClips()
     {
         monsterDie = Resources.Load<AudioClip>("Audio/monsterDie");
@@ -78,8 +140,8 @@ public class Monster : MonoBehaviour
 
     void MonsterDie()
     {
-        gameObject.layer = 6;
         gameObject.SetActive(false);
+        gameObject.layer = 6;
     }
 
     public void SetMonsterNowHP(int newNowHP)

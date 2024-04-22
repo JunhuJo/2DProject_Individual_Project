@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5616500141243622355}
   - component: {fileID: 4975468120788944180}
-  - component: {fileID: -4231902666955296964}
+  - component: {fileID: 194603311733097768}
   m_Layer: 0
   m_Name: HPItem
   m_TagString: Item
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-4231902666955296964
+--- !u!114 &194603311733097768
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,6 +94,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 317155389397762160}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 256b0c4850d482a458aa963a61ee1b09, type: 3}
+  m_Script: {fileID: 11500000, guid: 340134cab0fe3fc428d945f2b6f7bcf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ItemKey: 200

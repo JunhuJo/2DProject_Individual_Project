@@ -7,8 +7,7 @@ public class Inventory : MonoBehaviour
    public List<SlotData> slots = new List<SlotData>();
    public int maxSlot = 3;
    public GameObject slotPrefab;
-   private InputAction UseItem;
-
+  
     private void Start()
     {
         GameObject slotPanel = GameObject.Find("Slot");

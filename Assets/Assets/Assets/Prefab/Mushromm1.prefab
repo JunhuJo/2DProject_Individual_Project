@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2423204483512207539}
   - component: {fileID: 2423204483512207538}
   - component: {fileID: 115122667716405908}
-  - component: {fileID: 2423204483512207542}
   - component: {fileID: 2423204483512207533}
   - component: {fileID: 2423204483512207537}
   - component: {fileID: 2423204483512207536}
@@ -76,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2077639407
+  m_SortingLayerID: -793054353
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -7008412969330441016, guid: 5cdfcef2d5ef97347a8d7935407f81ab, type: 3}
@@ -110,20 +109,8 @@ MonoBehaviour:
   spwanPosition: {x: 0, y: 0}
   source: {fileID: 64738438233697111}
   monsterDie: {fileID: 8300000, guid: bfc24b7abcabd974cae3a986303a7cf6, type: 3}
-  Transform: {fileID: 2423204483512207539}
---- !u!114 &2423204483512207542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2423204483512207532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9bfd4caecc0c9f41bade2090d8b0c4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   nextMove: 0
+  Transform: {fileID: 2423204483512207539}
 --- !u!95 &2423204483512207533
 Animator:
   serializedVersion: 5
